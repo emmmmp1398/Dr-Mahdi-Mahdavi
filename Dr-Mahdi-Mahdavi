@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Mahdi Mahdavi - Healthcare Strategy & Research</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #005EB8 0%, #0078D4 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #005EB8;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #005EB8;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #005EB8;
+            border: 2px solid #005EB8;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Credentials Strip */
+        .credentials {
+            background: white;
+            padding: 40px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .credential-item {
+            padding: 20px;
+        }
+
+        .credential-item i {
+            font-size: 2rem;
+            color: #005EB8;
+            margin-bottom: 10px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #005EB8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: #005EB8;
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #005EB8;
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .research-item {
+            background: white;
+            padding: 2rem;
+            border-left: 4px solid #005EB8;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Dr. Mahdi Mahdavi</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Bridging Research and Reality in Healthcare Management</h1>
+            <p class="subtitle">
+                Dr. Mahdi Mahdavi, PhD | Senior Lecturer, University of Roehampton<br>
+                Harvard Fellow | Healthcare Operations & Policy Expert
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Book Consultation</a>
+                <a href="#research" class="btn btn-secondary">View Research</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Strip -->
+    <section class="credentials">
+        <div class="container">
+            <div class="credentials-grid">
+                <div class="credential-item">
+                    <i class="fas fa-university"></i>
+                    <h3>University of Roehampton</h3>
+                    <p>Senior Lecturer</p>
+                </div>
+                <div class="credential-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Harvard Fellow</h3>
+                    <p>T.H. Chan School of Public Health</p>
+                </div>
+                <div class="credential-item">
+                    <i class="fas fa-microscope"></i>
+                    <h3>25+ Publications</h3>
+                    <p>Peer-reviewed research</p>
+                </div>
+                <div class="credential-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>15+ Years Experience</h3>
+                    <p>Global healthcare research</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Dr. Mahdavi</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div style="width: 250px; height: 250px; border-radius: 50%; background: linear-gradient(135deg, #005EB8, #0078D4); margin: 0 auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>As a Senior Lecturer in Health Services Management at the University of Roehampton and Bernard Lown Fellow at Harvard T.H. Chan School of Public Health, I bridge the gap between academic research and healthcare practice.</p>
+                    
+                    <p>My journey spans three continents and multiple healthcare systems. From my PhD research at Erasmus University Rotterdam on health service provider networks to leading AI implementation studies in UK cardiac care, I've consistently focused on one question: How can we make healthcare systems work better for patients and providers?</p>
+
+                    <h3>Core Expertise:</h3>
+                    <ul>
+                        <li><strong>Health Operations Management</strong> - Service delivery optimization, patient pathway modeling</li>
+                        <li><strong>Health Technology Assessment</strong> - AI implementation, cost-effectiveness analysis</li>
+                        <li><strong>Policy Analysis</strong> - Evidence-informed policymaking, health system transformation</li>
+                        <li><strong>Research Methods</strong> - Mixed-methods design, health economics modeling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Services & Training</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Executive Workshops</h3>
+                    <p><strong>Evidence-Based Decision Making</strong><br>
+                    1-2 day intensive workshops covering policy analysis, implementation science, and NHS case studies.</p>
+                    <p><strong>Investment:</strong> £2,000-5,000 per engagement</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-laptop-medical"></i>
+                    <h3>Health Technology Assessment</h3>
+                    <p><strong>AI Implementation & Evaluation</strong><br>
+                    Cost-effectiveness analysis, technology adoption strategies, and real-world evidence generation.</p>
+                    <p><strong>Investment:</strong> £1,200-1,500 per day</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Operations Management</h3>
+                    <p><strong>Healthcare Service Optimization</strong><br>
+                    Patient pathway optimization, capacity planning, quality improvement frameworks.</p>
+                    <p><strong>Investment:</strong> £5,000-15,000 per program</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Research Collaboration</h3>
+                    <p><strong>Health Services Research</strong><br>
+                    Mixed-methods research design, health economics modeling, policy evaluation studies.</p>
+                    <p><strong>Format:</strong> Partnership basis</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Strategic Consulting</h3>
+                    <p><strong>Organizational Development</strong><br>
+                    Health system strategy, service redesign, change management, performance improvement.</p>
+                    <p><strong>Investment:</strong> Project-based pricing</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Speaking & Keynotes</h3>
+                    <p><strong>Conference Presentations</strong><br>
+                    Healthcare innovation, AI adoption, policy implementation, research translation.</p>
+                    <p><strong>Investment:</strong> £1,000-3,000 per event</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section">
+        <div class="container">
+            <h2 class="section-title">Current Research & Impact</h2>
+            <div class="research-grid">
+                <div class="research-item">
+                    <h3>AI in Cardiac Care (EASE Study)</h3>
+                    <p><strong>2022-Present | London South Bank University</strong></p>
+                    <p>Leading mixed-methods evaluation of artificial intelligence in stress echocardiography analysis. NHS-focused study examining accuracy, acceptability, and cost-effectiveness of AI diagnostic tools.</p>
+                    <p><em>Impact: Informing NHS adoption strategies for AI technologies</em></p>
+                </div>
+
+                <div class="research-item">
+                    <h3>Hypertension Services Optimization</h3>
+                    <p><strong>2020-2022 | Harvard T.H. Chan School</strong></p>
+                    <p>Harvard-funded research on cost-effectiveness of intensive blood pressure control strategies for universal health coverage.</p>
+                    <p><em>Impact: Policy recommendations for population health management</em></p>
+                </div>
+
+                <div class="research-item">
+                    <h3>EU Framework Programme Research</h3>
+                    <p><strong>2009-2012 | Erasmus University</strong></p>
+                    <p>€3.5M MANAGED OUTCOMES consortium studying healthcare practices across 6 European countries to develop best-practice models for regional health systems.</p>
+                    <p><em>Impact: Operational models for diabetes, stroke, and osteoarthritis care</em></p>
+                </div>
+
+                <div class="research-item">
+                    <h3>Recent Publications</h3>
+                    <p><strong>25+ Peer-reviewed Articles</strong></p>
+                    <ul>
+                        <li>BMJ Open (2024): AI-driven stress echocardiography analysis</li>
+                        <li>BMC Public Health (2022): Hypertension inequality in Iran</li>
+                        <li>Health Research Policy Systems (2022): Evidence-informed policy-making</li>
+                        <li>Operations Management for Healthcare (2022): Book chapters on stroke services and diabetes care</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div>
+                    <h3>Collaboration Opportunities</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><i class="fas fa-check" style="color: #005EB8; margin-right: 10px;"></i> Research partnerships on health services topics</li>
+                        <li><i class="fas fa-check" style="color: #005EB8; margin-right: 10px;"></i> Consulting engagements for healthcare organizations</li>
+                        <li><i class="fas fa-check" style="color: #005EB8; margin-right: 10px;"></i> Speaking opportunities at conferences and events</li>
+                        <li><i class="fas fa-check" style="color: #005EB8; margin-right: 10px;"></i> Training delivery for teams and organizations</li>
+                        <li><i class="fas fa-check" style="color: #005EB8; margin-right: 10px;"></i> Advisory roles on health technology and policy</li>
+                    </ul>
+
+                    <div style="margin-top: 2rem;">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-envelope" style="color: #005EB8; margin-right: 10px;"></i> mahdi.mahdavi@roehampton.ac.uk</p>
+                        <p><i class="fab fa-linkedin" style="color: #005EB8; margin-right: 10px;"></i> <a href="https://linkedin.com/in/mahdimahdavi" target="_blank">linkedin.com/in/mahdimahdavi</a></p>
+                        <p><i class="fas fa-university" style="color: #005EB8; margin-right: 10px;"></i> University of Roehampton, London</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                                <option>Workshop Inquiry</option>
+                                <option>Consulting Engagement</option>
+                                <option>Research Collaboration</option>
+                                <option>Speaking Opportunity</option>
+                                <option>General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dr. Mahdi Mahdavi. All rights reserved.</p>
+            <p>Healthcare Strategy & Research | Evidence-Based Solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. Dr. Mahdavi will respond within 24-48 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
